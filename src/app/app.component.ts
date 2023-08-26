@@ -11,7 +11,7 @@ export class AppComponent {
   @HostListener('document:scroll') scrollover() {
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       this.navbg = {
-        'background-color': '#000',
+        'background-color': 'rgba(0, 0,0,0.65)'
       };
     } else {
       this.navbg={};
