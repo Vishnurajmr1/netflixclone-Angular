@@ -1,0 +1,21 @@
+button {
+  background-color: #e50914;
+  color: #fff;
+  /* transition: transform 450ms; */
+}
+button:hover {
+  transform: scale(1.08);
+  background-color: #e50914;
+  color: #fff;
+  font-size: bold;
+  box-shadow: #fff;
+}
+
+img {
+  width: 100%;
+  cursor: pointer;
+}
+
+h5 {
+  color: #fff;
+}
