@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Movie } from 'src/app/interface/movie';
 import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 
@@ -7,7 +7,7 @@ import { MovieApiServiceService } from 'src/app/service/movie-api-service.servic
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   constructor(private service: MovieApiServiceService) { }
 
   bannerResult: Movie[] = [];
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   scienceFictionMovies: Movie[] = [];
   comedyMovies: Movie[] = [];
   thrillerMovies: Movie[] = [];
+
   ngOnInit(): void {
     this.bannerData();
 
@@ -41,7 +42,9 @@ export class HomeComponent implements OnInit {
 
   // bannerdata
   bannerData() {
-    this.service.bannerApiData().subscribe((result: { results: Movie[] }) => {
+    this.service.bannerApiData().subscribe((result): void => {
+      console.log(result);
+      
       this.bannerResult = result.results;
     });
   }

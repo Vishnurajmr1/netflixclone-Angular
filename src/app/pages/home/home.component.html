@@ -1,22 +1,23 @@
 <!-- banner-start -->
 
-<div class="container-fluid p-0">
-  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+<div class="container-fluid ">
+  <div id="carouselExampleDark" class="carousel slide">
     <div class="carousel-inner">
       <div
-        class="carousel-item active"
+        class="carousel-item"
         data-bs-interval="10000"
-        *ngFor="let banner of bannerResult; let i = index"
-        [ngClass]="{ active: i === 1 }"
+        *ngFor="let banner of bannerResult,let i = index"
+        [ngClass]="{ active: i == 0 }"
       >
         <img
-          src="https://image.tmdb.org/t/p/original/{{ banner.backdrop_path }}"
+          src="https://image.tmdb.org/t/p/original/{{banner.backdrop_path }}"
           class="d-block w-100"
           alt="..."
+          [routerLink]="['/movie', banner.id]"
         />
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="bannerTitle" [routerLink]="[ '/movie', banner.id ]"
-            {{ banner.original_title ? banner.original_title:banner.name }}></h2>
+          <h2 class="bannerTitle" [routerLink]="[ '/movie', banner.id ]">
+            {{ banner.original_title ? banner.original_title:banner.title }}</h2>
           <p>{{ banner.overview }}</p>
         </div>
       </div>
